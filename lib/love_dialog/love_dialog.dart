@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:apple_music_dialog/app.dart';
 import 'package:disposable_provider/disposable_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_portal/flutter_portal.dart';
@@ -9,6 +8,13 @@ import 'package:provider/provider.dart';
 import 'package:vsync_provider/vsync_provider.dart';
 
 import 'love_dialog_animation_manager.dart';
+
+class LoveDialogVisibilityNotifier extends ValueNotifier<bool> {
+  LoveDialogVisibilityNotifier() : super(false);
+
+  void startDialog() => value = true;
+  void finish() => value = false;
+}
 
 class LoveDialogEntry extends SingleChildStatelessWidget {
   @override

@@ -31,10 +31,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-class LoveDialogVisibilityNotifier extends ValueNotifier<bool> {
-  LoveDialogVisibilityNotifier() : super(false);
-
-  void startDialog() => value = true;
-  void finish() => value = false;
-}
