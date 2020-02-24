@@ -1,11 +1,27 @@
 import 'dart:ui';
 
+import 'package:apple_music_dialog/app.dart';
 import 'package:disposable_provider/disposable_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_portal/flutter_portal.dart';
+import 'package:nested/nested.dart';
 import 'package:provider/provider.dart';
 import 'package:vsync_provider/vsync_provider.dart';
 
 import 'love_dialog_animation_manager.dart';
+
+class LoveDialogEntry extends SingleChildStatelessWidget {
+  @override
+  Widget buildWithChild(BuildContext context, Widget child) {
+    return PortalEntry(
+      visible: context.watch<LoveDialogVisibilityNotifier>().value,
+      portal: LoveDialog.wrapped(
+        onFinish: context.read<LoveDialogVisibilityNotifier>().finish,
+      ),
+      child: child,
+    );
+  }
+}
 
 class LoveDialog extends StatelessWidget {
   const LoveDialog._({Key key}) : super(key: key);

@@ -15,6 +15,7 @@ class LoveDialogAnimationManager extends Disposable {
     _animationController.forward().then((_) async {
       _setReverseAnimation();
       await Future.delayed(const Duration(seconds: 1, milliseconds: 500));
+      _animationController.isDismissed;
       _animationController.reverse().then((value) => onFinish());
     });
   }
@@ -53,6 +54,7 @@ class LoveDialogAnimationManager extends Disposable {
 
   @override
   void dispose() {
+    _animationController.stop();
     _animationController.dispose();
   }
 }

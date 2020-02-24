@@ -12,6 +12,7 @@ dependencies:
   vsync_provider:
   disposable_provider:
   dot_of: any
+  nested: ^0.0.4
 dev_dependencies:
   flutter_test:
     sdk: flutter
